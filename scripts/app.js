@@ -2,16 +2,16 @@
 var Yike = angular.module('Yike', ['ngRoute', 'Controllers']);
 
 Yike.config(['$routeProvider', function($routeProvider) {
-	$routeProvider.when('/today', {
+	$routeProvider.when('!/today', {
 		templateUrl: './views/today.html',
 		controller: 'todayCtrl'
 	})
-	.when('/older', {
+	.when('!/older', {
 		templateUrl: './views/older.html',
 		controller: 'olderCtrl'
 	})
 	.otherwise({
-		redirectTo: '/today'
+		// redirectTo: '/today'
 	});
 }]);
 
