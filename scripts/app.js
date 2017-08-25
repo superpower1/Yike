@@ -1,6 +1,20 @@
  
 var Yike = angular.module('Yike', ['ngRoute', 'Controllers']);
 
+Yike.config(['$routeProvider', function($routeProvider) {
+	$routeProvider.when('/today', {
+		templateUrl: './views/today.html',
+		controller: 'todayCtrl'
+	})
+	.when('/older', {
+		templateUrl: './views/older.html',
+		controller: 'olderCtrl'
+	})
+	.otherwise({
+		redirectTo: '/today'
+	});
+}]);
+
 Yike.run(['$rootScope', function($rootScope) {
 	$rootScope.collapsed = false;
 
