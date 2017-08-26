@@ -18,6 +18,10 @@ Yike.config(['$routeProvider', function($routeProvider) {
 		templateUrl: './views/author.html',
 		controller: 'authorCtrl'
 	})
+	.when('/category', {
+		templateUrl: './views/category.html',
+		controller: 'categoryCtrl'
+	})
 	.otherwise({
 		redirectTo: '/today'
 	});

@@ -6,7 +6,10 @@ angular.module('Controllers', [])
 	$scope.navs = [
 		{link: '#/today', text: '今日一刻', icon: 'icon-home'},
 		{link: '#/older', text: '往期内容', icon: 'icon-file-empty'},
-		{link: '#/author', text: '热门作者', icon: 'icon-pencil'}
+		{link: '#/author', text: '热门作者', icon: 'icon-pencil'},
+		{link: '#/category', text: '栏目浏览', icon: 'icon-menu'},
+		{link: '#/favourite', text: '我的喜欢', icon: 'icon-heart'},
+		{link: '#/settings', text: '设置', icon: 'icon-cog'}
 	];
 }])
 
@@ -53,6 +56,20 @@ angular.module('Controllers', [])
 		$rootScope.loaded = true;
 		$scope.rec = info.data.rec;
 		$scope.all = info.data.all;
+
+		console.log(info);
+	});
+}])
+
+.controller('categoryCtrl', ['$scope', '$http', '$rootScope', function($scope, $http, $rootScope) {
+	$rootScope.title = '栏目精选';
+	$rootScope.loaded = false;
+
+	$http({
+		url: './api/category.php'
+	}).then(function(info) {
+		$rootScope.loaded = true;
+		$scope.columns = info.data.columns;
 
 		console.log(info);
 	});
