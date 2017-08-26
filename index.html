@@ -19,7 +19,7 @@
 					<span>登录</span>
 				</dt>
 				<dd ng-class="{active: index == key}" ng-repeat="(key, nav) in navs">
-					<a href="{{nav.link}}" ng-click="toggle()" ng-class="{{nav.icon}}" >
+					<a href="{{nav.link}}" ng-click="toggle()" class="{{nav.icon}}">
 						<span>{{nav.text}}</span>
 					</a>
 				</dd>

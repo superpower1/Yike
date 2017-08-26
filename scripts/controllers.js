@@ -4,8 +4,9 @@ angular.module('Controllers', [])
 
 .controller('navCtrl', ['$scope', function($scope) {
 	$scope.navs = [
-		{link: '#!/today', text: '今日一刻', icon: 'icon-home'},
-		{link: '#!/older', text: '往期内容', icon: 'icon-file-empty'}
+		{link: '#/today', text: '今日一刻', icon: 'icon-home'},
+		{link: '#/older', text: '往期内容', icon: 'icon-file-empty'},
+		{link: '#/author', text: '热门作者', icon: 'icon-pencil'}
 	];
 }])
 
@@ -33,12 +34,26 @@ angular.module('Controllers', [])
 	$rootScope.loaded = false;
 
 	$http({
-		url: './api/older.php',
-		method: 'get',
+		url: './api/older.php'
 	}).then(function(info) {
 		$rootScope.loaded = true;
 		$scope.date = info.data.date;
 		$scope.posts = info.data.posts;
+		console.log(info);
+	});
+}])
+
+.controller('authorCtrl', ['$scope', '$http', '$rootScope', function($scope, $http, $rootScope) {
+	$rootScope.title = '热门作者';
+	$rootScope.loaded = false;
+
+	$http({
+		url: './api/author.php'
+	}).then(function(info) {
+		$rootScope.loaded = true;
+		$scope.rec = info.data.rec;
+		$scope.all = info.data.all;
+
 		console.log(info);
 	});
 }])

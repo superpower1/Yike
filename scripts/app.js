@@ -1,17 +1,25 @@
  
 var Yike = angular.module('Yike', ['ngRoute', 'Controllers']);
 
+Yike.config(['$locationProvider', function($locationProvider) {
+  $locationProvider.hashPrefix('');
+}]);
+
 Yike.config(['$routeProvider', function($routeProvider) {
-	$routeProvider.when('!/today', {
+	$routeProvider.when('/today', {
 		templateUrl: './views/today.html',
 		controller: 'todayCtrl'
 	})
-	.when('!/older', {
+	.when('/older', {
 		templateUrl: './views/older.html',
 		controller: 'olderCtrl'
 	})
+	.when('/author', {
+		templateUrl: './views/author.html',
+		controller: 'authorCtrl'
+	})
 	.otherwise({
-		// redirectTo: '/today'
+		redirectTo: '/today'
 	});
 }]);
 
