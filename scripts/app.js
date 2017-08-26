@@ -22,6 +22,14 @@ Yike.config(['$routeProvider', function($routeProvider) {
 		templateUrl: './views/category.html',
 		controller: 'categoryCtrl'
 	})
+	.when('/favourite', {
+		templateUrl: './views/favourite.html',
+		controller: 'favouriteCtrl'
+	})
+	.when('/settings', {
+		templateUrl: './views/settings.html',
+		controller: 'settingsCtrl'
+	})
 	.otherwise({
 		redirectTo: '/today'
 	});

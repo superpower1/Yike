@@ -62,7 +62,7 @@ angular.module('Controllers', [])
 }])
 
 .controller('categoryCtrl', ['$scope', '$http', '$rootScope', function($scope, $http, $rootScope) {
-	$rootScope.title = '栏目精选';
+	$rootScope.title = '栏目浏览';
 	$rootScope.loaded = false;
 
 	$http({
@@ -73,4 +73,14 @@ angular.module('Controllers', [])
 
 		console.log(info);
 	});
+}])
+
+.controller('favouriteCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
+	$rootScope.title = '我的喜欢';
+
+}])
+
+.controller('settingsCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
+	$rootScope.title = '设置';
+
 }])
